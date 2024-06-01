@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: virtualthread
+  threads:
+    virtual:
+      enabled: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/reactive?allowMultiQueries=true&useSSL=false&characterEncoding=UTF-8&serverTimezone=Asia/Seoul&cacheCallableStmts=true&autoReconnect=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    hikari:
+      connection-timeout: 3000
+      validation-timeout: 3000
+      minimum-idle: 1
+      max-lifetime: 900000
+      maximum-pool-size: 50
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+    show-sql: true
+    defer-datasource-initialization: true
